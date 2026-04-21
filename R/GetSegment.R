@@ -1,13 +1,22 @@
+#' @title Calculate segment information
+#'
+#' @param population (matrix): Matrix of the population that is segmented.
+#' @param primary.channel (character): Name of the primary channel.
+#' @param secondary.channel (character): Name of the secondary channel.
+#' @param segment (numerical) Segment number for which the information is obtained.
+#' @param range.input (numerical): Numerical value defining the width of each segment.
+#' @keywords internal
+
 # Internal function - Calculate segment information
 .GetSegment <- function(population, primary.channel, secondary.channel, segment, range.input) {
   
   
   # Input validation -----------------------------------------------------------
-  checkmate::checkMatrix(population)
-  checkmate::checkCharacter(primary.channel)
-  checkmate::checkCharacter(secondary.channel)
-  checkmate::checkNumeric(range.input)
-  checkmate::checkNumeric(range.input)
+  checkmate::assertMatrix(population)
+  checkmate::assertCharacter(primary.channel)
+  checkmate::assertCharacter(secondary.channel)
+  checkmate::assertNumeric(segment)
+  checkmate::assertNumeric(range.input)
   
   
   # Calculate segment information of the first segment -------------------------

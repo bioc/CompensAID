@@ -30,14 +30,12 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 if (!requireNamespace("devtools", quietly = TRUE))
     install.packages("devtools")
 
-# Install ggcyto development version from GitHub - otherwise does not work with ggplot2
-devtools::install_github("RGLab/ggcyto", ref = "devel")
+# Install ggcyto abd ggplot2
+BiocManager::install("ggcyto")
+install.packages("ggplot2")
 
 # Install CompensAID from GitHub
 devtools::install_github("Olsman/CompensAID")
-
-# Install ggplot2 from Bioconductor - older version otherwise it ggcyto gives errors
-devtools::install_version("ggplot2", version = "3.5.2", repos = "http://cran.us.r-project.org")
 
 # Load libraries
 library(ggplot2)

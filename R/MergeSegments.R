@@ -1,10 +1,18 @@
+#' @title Combine segments that do not meet the requirements
+#'
+#' @param segment.event.count (numerical): Number of events per segment
+#' @param ev.input (numerical): Minimum required number of events.
+#'
+#' @return (list) Returns a list with which segments need to be merged.
+#' @keywords internal
+
 # Internal function - Asssess which segments do not meet the requirements
 .MergeSegments <- function(segment.event.count, ev.input) {
   
   
   # Input validation -----------------------------------------------------------
-  checkmate::checkNumeric(segment.event.count)
-  checkmate::checkNumeric(ev.input)
+  checkmate::assertNumeric(segment.event.count)
+  checkmate::assertNumeric(ev.input)
   
   
   # Temporary empty lists

@@ -1,12 +1,22 @@
+#' @title Calculate the Secondary Stain Index for each marker combination
+#'
+#' @param si.input (dataFrame): DataFrame containing the SSI info.
+#' @param primary.channel (character): Name of the primary marker.
+#' @param secondary.channel (character): Name of the secondary marker.
+#' @param segment (numeric): Numerical value of the segment
+#' 
+#' @return Numeric value of Secondary Stain Index score
+#' @keywords internal
+
 # Internal function - Calculate Secondary Stain Index
 .CalculateSSI <- function(si.input, primary.channel, secondary.channel, segment) {
   
   
   # Input validation -----------------------------------------------------------
-  checkmate::checkDataFrame(si.input)
-  checkmate::checkCharacter(primary.channel)
-  checkmate::checkCharacter(secondary.channel)
-  checkmate::checkNumeric(segment)
+  checkmate::assertDataFrame(si.input)
+  checkmate::assertCharacter(primary.channel)
+  checkmate::assertCharacter(secondary.channel)
+  checkmate::assertNumeric(segment)
   
   
   # Calculate Secondary Stain Index --------------------------------------------

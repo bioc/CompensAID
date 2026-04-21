@@ -7,7 +7,7 @@
 #'
 #' @return (list) Returns a list containing the full SSI output and SSI matrix
 #'
-#' @importFrom checkmate assert checkNumeric
+#' @importFrom checkmate assert assertNumeric
 #' @importFrom methods is
 #' @importFrom ParallelLogger logInfo
 #' @importFrom flowCore markernames
@@ -27,8 +27,8 @@ CompensAID <- function(ff, segment.value = 4, events.value = 50) {
   
   # Input validation -----------------------------------------------------------
   checkmate::assert(methods::is(ff, "flowFrame"), "Object is not a flowFrame.")
-  checkmate::checkNumeric(segment.value)
-  checkmate::checkNumeric(events.value)
+  checkmate::assertNumeric(segment.value)
+  checkmate::assertNumeric(events.value)
   sprintf('Importing sample: %s', ff@description[["FILENAME"]]) |> ParallelLogger::logInfo()
   
   
@@ -106,7 +106,6 @@ CompensAID <- function(ff, segment.value = 4, events.value = 50) {
       # Update SSI dataFrame
       si <- .UpdateMatrixInfo(si.input = si,
                              rv.input = segment.value,
-                             range.input = range,
                              primary = mc$primary.marker[i],
                              secondary = mc$secondary.marker[i],
                              output = "No positive/negative population")

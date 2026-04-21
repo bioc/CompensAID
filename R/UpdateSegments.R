@@ -1,13 +1,24 @@
+#' @title Combine segments that do not meet the requirements
+#'
+#' @param si.input (dataFrame): dataFrame containing SSI info.
+#' @param primary (character): Name of the primary marker.
+#' @param secondary (character) Name of the secondary marker.
+#' @param ev.input (numerical): Minimum required number of events.
+#' @param rv.input (numerical): Number of segments.
+#'
+#' @return (dataFrame) Returns a dataframe with an update SSI information dataFrame.
+#' @keywords internal
+
 # Internal function - Combine segments that do not meet the requirements
 .UpdateSegments <- function(si.input, primary, secondary, ev.input, rv.input) {
   
   
   # Input validation -----------------------------------------------------------
-  checkmate::checkDataFrame(si.input)
-  checkmate::checkCharacter(primary)
-  checkmate::checkCharacter(secondary)
-  checkmate::checkNumeric(ev.input)
-  checkmate::checkNumeric(rv.input)
+  checkmate::assertDataFrame(si.input)
+  checkmate::assertCharacter(primary)
+  checkmate::assertCharacter(secondary)
+  checkmate::assertNumeric(ev.input)
+  checkmate::assertNumeric(rv.input)
   
   
   # Merge segments -------------------------------------------------------------

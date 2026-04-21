@@ -1,3 +1,14 @@
+#' @title Obtain empty SSI dataFrame
+#'
+#' @param og (FlowFrame): FlowFrame containing the expression matrix, channel names, and marker names.
+#' @param rv.input (numerical): Numerical value of the number of segments in the primary positive population.
+#' @param mc.input (dataFrame): dataFrame containing all possible marker combinations.
+#' @param co.input (dataFrame) dataFrame with the output of the density-based cut-off detection.
+#' @param sd.input (numerical): Numerical value determining the distance between the primary negative and positive population.
+#'
+#' @return (dataFrame) Returns an empty SSI dataFrame
+#' @keywords internal
+
 # Internal function - Obtain empty SSI dataFrame
 .EmptyMatrixInfo <- function(og = ff,
                             rv.input = range.value,
@@ -8,10 +19,10 @@
   
   # Input validation -----------------------------------------------------------
   checkmate::assert(methods::is(og, "flowFrame"), "Object is not a flowFrame.")
-  checkmate::checkNumeric(rv.input)
-  checkmate::checkDataFrame(mc.input)
-  checkmate::checkDataFrame(co.input)
-  checkmate::checkNumeric(sd.input)
+  checkmate::assertNumeric(rv.input)
+  checkmate::assertDataFrame(mc.input)
+  checkmate::assertDataFrame(co.input)
+  checkmate::assertNumeric(sd.input)
   
   # Obtain sample name
   fn <- gsub(".*/", "", og@description[["FILENAME"]])

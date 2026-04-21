@@ -12,4 +12,7 @@ testthat::test_that("CompensAID", {
   
   # Segment.value not numerical
   testthat::expect_error(CompensAID(flowFrame, segment.value = "3", events.value = 70))
+  
+  # Events.value not numerical
+  testthat::expect_error(CompensAID(flowFrame, segment.value = 3, events.value = "70"))
 })

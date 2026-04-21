@@ -1,11 +1,19 @@
+#' @title Clean adjust segment information
+#'
+#' @param si.input (dataFrame): DataFrame containing the SSI info.
+#' @param mp (character): Name of the primary marker.
+#' @param ms (character): Name of the secondary marker.
+#'
+#' @return (dataFrame) Returns a dataframe with an update SSI information dataFrame.
+#' @keywords internal
+
 # Internal function - Clean adjust segment information
 .CleanSegments <- function(si.input, mp, ms) {
   
-  
   # Input validation -----------------------------------------------------------
-  checkmate::checkDataFrame(si.input)
-  checkmate::checkCharacter(mp)
-  checkmate::checkCharacter(ms)
+  checkmate::assertDataFrame(si.input)
+  checkmate::assertCharacter(mp)
+  checkmate::assertCharacter(ms)
   
   
   # Move updated segments ------------------------------------------------------

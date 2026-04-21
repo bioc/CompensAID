@@ -5,7 +5,7 @@
 #'
 #' @return (ggplot2) Returns figure containing a matrix of the total compensAID output.
 #'
-#' @importFrom checkmate checkList
+#' @importFrom checkmate assertList
 #' @importFrom reshape2 melt
 #' @importFrom dplyr mutate case_when
 #' @importFrom ggplot2 ggplot aes geom_tile geom_text scale_fill_identity labs theme element_text element_blank element_rect

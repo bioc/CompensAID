@@ -1,3 +1,10 @@
+#' @title Rougly estimate the 'center' of a marker
+#'
+#' @param og (FlowFrame): FlowFrame containing the expression matrix, channel names, and marker names.
+#'
+#' @return (list) Returns a list containing the estimated center and additional margin
+#' @keywords internal
+
 # Internal function - Estimate the center of the FCS file for robust cutoff estimation.
 .DetermineCenter <- function(og) {
 

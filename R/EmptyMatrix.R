@@ -1,3 +1,10 @@
+#' @title Obtain empty SSI matrix
+#'
+#' @param og (FlowFrame): FlowFrame containing the expression matrix, channel names, and marker names.
+#'
+#' @return (matrix) Returns an empty SSI matrix
+#' @keywords internal
+
 # Internal function - Obtain empty SSI matrix
 .EmptyMatrix <- function(og) {
   

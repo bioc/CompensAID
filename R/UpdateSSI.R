@@ -1,13 +1,24 @@
+#' @title Update Secondary Stain Index
+#'
+#' @param si.input (dataFrame): DataFrame containing the SSI info.
+#' @param rv.input (numerical): Numerical value for the number of segments.
+#' @param primary (character): Name of the primary marker
+#' @param secondary (character): Name of the secondary marker
+#' @param population (list): List with the population matrices
+#'
+#' @return (numerical) Returns the Secondary Stain Index score.
+#' @keywords internal
+
 # Internal function - Update Secondary Stain Index
 .UpdateSSI <- function(si.input, rv.input, primary, secondary, population) {
   
   
   # Input validation -----------------------------------------------------------
-  checkmate::checkDataFrame(si.input)
-  checkmate::checkNumeric(rv.input)
-  checkmate::checkCharacter(primary)
-  checkmate::checkCharacter(secondary)
-  checkmate::checkList(population)
+  checkmate::assertDataFrame(si.input)
+  checkmate::assertNumeric(rv.input)
+  checkmate::assertCharacter(primary)
+  checkmate::assertCharacter(secondary)
+  checkmate::assertList(population)
   
   # Obtain information
   population.positive <- population$primary.positive

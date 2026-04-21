@@ -1,11 +1,20 @@
+#' @title Adjust (merged) segment information
+#'
+#' @param si.input (dataFrame): DataFrame containing the SSI info.
+#' @param mp (character): Name of the primary marker.
+#' @param ms (character): Name of the secondary marker.
+#' 
+#' @return Dataframe with updated SSI info
+#' @keywords internal
+
 # Internal function - Adjust (merged) segment information
 .AdjustSegments <- function(si.input, mp, ms) {
   
   
   # Input validation -----------------------------------------------------------
-  checkmate::checkDataFrame(si.input)
-  checkmate::checkCharacter(mp)
-  checkmate::checkCharacter(ms)
+  checkmate::assertDataFrame(si.input)
+  checkmate::assertCharacter(mp)
+  checkmate::assertCharacter(ms)
   
   
   # Add temporary columns ------------------------------------------------------

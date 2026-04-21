@@ -1,7 +1,10 @@
 testthat::test_that("Plot Dot Plot Errors", {
   
   flowFrame <- flowCore::read.FCS(system.file("extdata", "68983.fcs", package = "CompensAID"))
+  
+  testthat::expect_output(CompensAID::CompensAID(flowFrame))
   compensAID.res <- CompensAID::CompensAID(flowFrame)
+  
   matrix.SSI <- compensAID.res$matrix
   matrix.info <- compensAID.res$matrixInfo
   
@@ -11,6 +14,12 @@ testthat::test_that("Plot Dot Plot Errors", {
                                                  "GFP",
                                                  "CD8",
                                                  showScores = TRUE))
+  
+  # Correct
+  testthat::expect_no_error(PlotDotSSI(compensAID.res,
+                                       flowFrame,
+                                       "GFP",
+                                       "CD8"))
   
   # No flowFrame added to function
   testthat::expect_error(PlotDotSSI(compensAID.res,

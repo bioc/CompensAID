@@ -1,10 +1,18 @@
+#' @title Perform density-based cut-off detection
+#'
+#' @param og (FlowFrame): FlowFrame containing the expression matrix, channel names, and marker names.
+#' @param cp.value (numerical): Numerical value determining the preliminary center.
+#'
+#' @return (dataFrame) Returns a dataFrame with the output of the density-based cut-off detection
+#' @keywords internal
+
 # Internal function - Perform density-based cut-off detection
 .DensityGating <- function(og, cp.value) {
   
   
   # Input validation -----------------------------------------------------------
   checkmate::assert(methods::is(og, "flowFrame"), "Object is not a flowFrame.")
-  checkmate::checkNumeric(cp.value)
+  checkmate::assertNumeric(cp.value)
   
   
   # Perform density-based cut-off detection ------------------------------------

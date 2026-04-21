@@ -1,16 +1,32 @@
+#' @title Calculate segment information
+#'
+#' @param si.input (dataFrame): dataFrame containing SSI info.
+#' @param range.input (numerical): Width of each segment.
+#' @param primary (character): Name of the primary marker.
+#' @param secondary (character) Name of the secondary marker.
+#' @param output (character): Will be "PASS" or "No positive/negative population" depending on the required events.
+#' @param rv.input (numerical): Number of segments.
+#' @param population (matrix): Matrix with the population for which the information is obtained.
+#'
+#' @return (dataFrame) Returns a dataframe with an update SSI information dataFrame.
+#' @keywords internal
+
 # Internal function - Calculate segment information
-.UpdateMatrixInfo <- function(si.input, range.input = NULL, primary, secondary, output, rv.input, segment = NULL, population = NULL) {
+.UpdateMatrixInfo <- function(si.input, range.input = NULL, primary, secondary, output, rv.input, population = NULL) {
   
   
   # Input validation -----------------------------------------------------------
-  checkmate::checkDataFrame(si.input)
-  checkmate::checkNumeric(range.input)
-  checkmate::checkCharacter(primary)
-  checkmate::checkCharacter(secondary)
-  checkmate::checkCharacter(output)
-  checkmate::checkNumeric(rv.input)
-  checkmate::checkNumeric(segment)
-  checkmate::checkList(population)
+  checkmate::assertDataFrame(si.input)
+  checkmate::assertCharacter(primary)
+  checkmate::assertCharacter(secondary)
+  checkmate::assertCharacter(output)
+  checkmate::assertNumeric(rv.input)
+  
+  aditVal <- !is.null(range.input)
+  if(aditVal) {
+  checkmate::assertNumeric(range.input)
+  checkmate::assertList(population)
+  }
   
   # Channel names
   channel.primary <- si.input$primary.channel[si.input$primary.marker == primary & si.input$secondary.marker == secondary][1]

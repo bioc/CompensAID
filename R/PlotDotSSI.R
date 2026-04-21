@@ -9,7 +9,7 @@
 #'
 #' @return (ggplot2) Returns figure containing a dot plot of the CompensAID output.
 #'
-#' @importFrom checkmate checkList assert checkCharacter
+#' @importFrom checkmate assertList assert assertCharacter
 #' @importFrom methods is
 #' @importFrom ggcyto autoplot as.ggplot
 #' @importFrom ggplot2 guides theme_minimal xlab ylab theme element_text element_blank element_rect annotate

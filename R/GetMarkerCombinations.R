@@ -1,3 +1,10 @@
+#' @title Obtain all possible marker combinations
+#'
+#' @param og (FlowFrame): FlowFrame containing the expression matrix, channel names, and marker names.
+#'
+#' @return (dataFrame) Returns a dataFrame containing all possible marker combinations
+#' @keywords internal
+
 # Internal function - Obtain all possible marker combinations
 .GetMarkerCombinations <- function(og) {
   
